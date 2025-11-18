@@ -10,10 +10,9 @@ let num = (Math.floor (Math.random()*50)) + 40 ;
 
 
 btn.addEventListener('click', function(){
-    setInterval(function(){
-        h3.textContent = "Downloading";
-        p.textContent = `Download Complete in ${num/10} Seconds`;
-        
+    h3.textContent = "Downloading";
+    p.textContent = `Download Complete in ${num/10} Seconds`;
+    let si = setInterval(function(){
     if(count < 100){
         count++;
         pg.style.width = `${count}%`;
@@ -21,6 +20,7 @@ btn.addEventListener('click', function(){
     }
     else {
         document.querySelector("h3").textContent = "Downloaded.."
+        clearInterval(si)
     }
 },num) 
 })
